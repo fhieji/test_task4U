@@ -1,0 +1,9 @@
+<h1>チケット一覧</h1>
+<div><%= link_to '作成', new_ticket_path %></div>
+<ul>
+	<% @tickets.each do |tickets| %>
+		<li>
+			<%= link_to tickets.title, tickets_path(tickets) %>
+		</li>
+	<% end %>
+</ul>

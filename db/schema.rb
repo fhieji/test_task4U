@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_163013) do
+ActiveRecord::Schema.define(version: 2019_04_29_114126) do
 
-  create_table "projects", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "sub_title"
     t.string "image"
@@ -49,6 +49,35 @@ ActiveRecord::Schema.define(version: 2019_04_23_163013) do
     t.string "name", collation: "utf8_bin"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "ticket_registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category"
+    t.string "title"
+    t.text "comment_descriptive"
+    t.string "comment_summary"
+    t.string "status"
+    t.string "PIC"
+    t.string "related_ticket"
+    t.date "start_date"
+    t.date "due_date"
+    t.integer "estimated_man_hour"
+    t.float "progress_rate"
+    t.string "watcher"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "surname"
+    t.string "firstname"
+    t.string "email_address"
+    t.date "registrartion_date"
+    t.integer "administraton_flag"
+    t.integer "delete_flag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
