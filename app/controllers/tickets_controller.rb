@@ -23,6 +23,6 @@ def index
   private
 
   def tickets_params
-    params.require(:tickets).permit(:category,:title,:comment_descriptive,:comment_summary,:status,:PIC,:related_ticket,:start_date,:due_date,:estimated_man_hour,:progress_rate,:watcher) 
+    params.require(:tickets).permit(:category, :title, :comment_descriptive, :comment_summary, :status, :PIC, :related_ticket, :start_date, :due_date, :estimated_man_hour, :progress_rate, :watcher) 
   end
 end
