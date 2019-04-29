@@ -1,0 +1,9 @@
+<h1>実証実験プロジェクト一覧</h1>
+<div><%= link_to '作成', new_project_path %></div>
+<ul>
+	<% @projects.each do |project| %>
+		<li>
+			<%= link_to project.title, project_path(project) %>
+		</li>
+	<% end %>
+</ul>

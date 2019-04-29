@@ -1,0 +1,37 @@
+// Place all the styles related to the Project controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	font-family: ‘Hiragino Kaku Gothic ProN’, ‘ヒラギノ角ゴ ProN W3’, ‘Meiryo UI’, Meiryo, メイリオ, Osaka, ‘MS PGothic’, arial, helvetica, sans-serif !important;
+	font-size: 18px !important;
+}
+
+.project-detail {
+    font-family: meiryo UI;
+	h1 {
+		border-bottom: 2px solid #ff0212;
+    padding-bottom: 5px;
+    font-size: 32px;
+    font-weight: bold; 
+	}
+	h2 {
+		font-size: 24px;
+	}
+	h3 {
+		font-size: 20px;
+	}
+	img {
+		margin-bottom: 30px;
+	}
+	.content {
+		margin-bottom: 30px;
+		.row {
+			margin-bottom: 5px;
+			.item {
+			  padding: 20px;
+		    background-color: #cccccc;
+			}
+		}
+	}
+}
