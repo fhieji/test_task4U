@@ -1,9 +1,9 @@
 class TicketsController < ApplicationController
-def index
+  def index
   	@tickets = TicketRegistration.all
   end
 
- def new
+  def new
     @tickets = TicketRegistration.new
   end
 
@@ -18,6 +18,9 @@ def index
 
   def show
   	@tickets = Tickets.find(params[:id])
+  end
+
+  def edit
   end
 
   private

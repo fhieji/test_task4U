@@ -4,7 +4,7 @@
   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-<div<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <!doctype html>
@@ -34,59 +34,23 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
     <div class="navbar-nav ml-auto">
-
-			<%= link_to 'ダッシュボード', root_path, class: "nav-item mr-auto nav-link" %><span class="sr-only">(current)</span>
+			<%= link_to 'ダッシュボード', root_path, class: "nav-item mr-auto nav-link active" %><span class="sr-only">(current)</span>
       <%= link_to 'チケット登録', new_ticket_path, class: "nav-item nav-link" %>
-      <%= link_to 'チケット一覧', tickets_path, class: "nav-item nav-link active" %>
-
+      <%= link_to 'チケット一覧', tickets_path, class: "nav-item nav-link" %>
     </div>
 
   </div>
 
 </nav>
 
-    <title>チケット一覧</title>
+    <title>チケット作成</title>
   </head>
-<!-- bootstrap-datepickerを読み込む -->
-<link rel="stylesheet" type="text/css" href="../GW_app/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.min.css">
-<script type="text/javascript" src="../GW_app/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="..//GW_app/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.ja.min.js"></script>
+	<!-- bootstrap-datepickerを読み込む -->
+	<link rel="stylesheet" type="text/css" href="../GW_app/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.min.css">
+	<script type="text/javascript" src="../GW_app/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="..//GW_app/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.ja.min.js"></script>
 
   <body>
-    <h1 class="text-center">チケット一覧</h1>
-
-    <div class="container">
-    <div class="card mx-auto col-8 float-center">
-    <article class="card-body">
-			<ul>
-				<% @tickets.each do |tickets| %>
-					<li>
-						<%= link_to tickets.title, tickets_path(tickets) %>
-					</li>
-				<% end %>
-			</ul>
-    </article>
-　　</div> <!-- card.// -->
-    </div>
-
-  </body>
-<!-- bootstrap-datepicker javascript -->
-<script>
-$(function () {
-  $('#start-date').datepicker({
-    autoclose: true,
-    format: 'yyyy/mm/dd',
-    language:'ja'
-});
-});
-</script>
-<script>
-$(function () {
-  $('#finish-date').datepicker({
-    autoclose: true,
-    format: 'yyyy/mm/dd',
-    language:'ja'
-});
-});
-</script>
-</html>
+		<h1 class="text-center">ダッシュボード</h1>
+   </body>
+ </html> 
