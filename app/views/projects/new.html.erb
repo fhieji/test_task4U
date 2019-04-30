@@ -2,7 +2,7 @@
   <%= form_for(@project) do |f| %>
     <div class="field">
       <%= f.label :title, "実証実験タイトル" %><br>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, placeholder: 'test' %>
     </div>
     <div class="field">
       <%= f.label :sub_title, "メッセージライン" %><br>
@@ -45,7 +45,7 @@
       <%= text_field_tag 'project[technology_list]', @project.technology_list.join(','), "data-role" => "tagsinput" %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <% f.submit :class=>"btn" %>
     </div>
   <% end %>
 </div>

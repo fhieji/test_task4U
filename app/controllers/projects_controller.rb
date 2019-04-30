@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
     else
       redirect_to new_project_path, alert: '実証実験事例の作成に失敗しました'
     end
+
   end
 
   def show
