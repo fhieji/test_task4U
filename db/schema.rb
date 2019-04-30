@@ -68,6 +68,25 @@ ActiveRecord::Schema.define(version: 2019_04_29_120734) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tickets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category"
+    t.string "title"
+    t.text "comment_descriptive"
+    t.string "comment_summary"
+    t.string "status"
+    t.string "PIC"
+    t.string "related_ticket1"
+    t.string "related_ticket2"
+    t.string "related_ticket3"
+    t.date "start_date"
+    t.date "due_date"
+    t.integer "estimated_man_hour"
+    t.float "progress_rate"
+    t.string "watcher"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "surname"
