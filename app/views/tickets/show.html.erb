@@ -61,32 +61,32 @@
     <form>
       <div class="form-group">
         <label for="category">カテゴリ</label>
-        <p>ユーザーテスト</p>
+        <%= @ticket.category %>
       </div>
 
       <div class="form-group">
         <label for="title">題名</label>
-        <p>タイトル1</p>
+        <%= @ticket.title %>
       </div>
 
       <div class="form-group">
-        <label for="ab-description">説明大項目</label>
-    　　<p>チケットの概要</p>
+        <label for="comment_summary">説明大項目</label>
+    　　<%= @ticket.comment_summary %>
       </div>
 
       <div class="form-group">
-        <label for="con-description">説明小項目</label>
-    　　<p>チケットの詳細</p>
+        <label for="comment_descriptive">説明小項目</label>
+    　　<%= @ticket.comment_descriptive %>
       </div>
 
       <div class="form-group">
-        <label for="category">ステータス</label>
-        <p>レビューバック反映中</p>
+        <label for="status">ステータス</label>
+        <%= @ticket.status %>
       </div>
 
       <div class="form-group">
-        <label for="worker">担当者</label>
-        <p>今井 心</p>
+        <label for="PIC">担当者</label>
+        <%= @ticket.PIC %>
       </div>
 
 <!--
@@ -101,39 +101,39 @@
 -->
 
       <div class="form-group">
-        <label for="related-ticket">関連チケット1</label>
-    　　カレー作成
+        <label for="related_ticket1">関連チケット1</label>
+    　　<%= @ticket.related_ticket1 %>
       </div>
 
       <div class="form-group">
-        <label for="related-ticket">関連チケット2</label>
-    　　<p>買い出し</p>
+        <label for="related_ticket2">関連チケット2</label>
+    　　<%= @ticket.related_ticket2 %>
       </div>
 
       <div class="form-group">
-        <label for="related-ticket">関連チケット3</label>
-    　　<p>片付け</p>
+        <label for="related_ticket3">関連チケット3</label>
+    　　<%= @ticket.related_ticket3 %>
       </div>
 
       <div class="form-group" style="position: relative" required>
-        <p>4/10</p>
+        <%= @ticket.start_date %>
       </div>
 
       <div class="form-group"　style="position: relative" requiredz>
-        <p>5/10</p>
+        <%= @ticket.due_date %>
       </div>
 
       <div class="form-group">
-        <label for="percentage">進捗率</label>
-        <p>30％</p>
+        <label for="progress_rate">進捗率</label>
+        <%= @ticket.progress_rate %>
       </div>
 
       <div class="form-group">
-        <label for="worker">チケットのウォッチャー1</label>
-        <p>今井 心</p>
+        <label for="watcher">チケットのウォッチャー1</label>
+        <%= @ticket.watcher %>
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="worker">チケットのウォッチャー2</label>
         <p>Go</p>
       </div>
@@ -141,7 +141,7 @@
       <div class="form-group">
         <label for="worker">チケットのウォッチャー3</label>
         <p>kishi</p>
-      </div>
+      </div> -->
 
 <!--!
       <div class="form-group">

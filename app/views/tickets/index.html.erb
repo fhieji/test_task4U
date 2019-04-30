@@ -61,7 +61,7 @@
 			<ul>
 				<% @tickets.each do |tickets| %>
 					<li>
-						<%= link_to tickets.title, tickets_path(tickets) %>
+						<%= link_to tickets.title, ticket_path(tickets) %>
 					</li>
 				<% end %>
 			</ul>

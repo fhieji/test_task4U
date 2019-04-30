@@ -59,130 +59,76 @@
     <div class="container">
     <div class="card mx-auto col-8 float-center">
     <article class="card-body">
-    <form>
+     <%= form_for(@ticket) do |f| %>
       <div class="form-group">
-        <label for="category">カテゴリ</label>
-        <select class="form-control" id ="category" required>
-        <option value>選択してください。</option>
-        <option value>要件定義</option>
-        <option value>設計</option>
-        <option value>開発</option>
-        <option value>単体テスト</option>
-        <option value>結合テスト</option>
-        <option value>ユーザーテスト</option>
-        </select>
+        <%= f.label :category, "カテゴリ" %><br>
+        <%= f.select :category, ["要件定義", "設計", "開発", "単体テスト", "結合テスト", "ユーザーテスト"], :prompt => "選択してください"%>
       </div>
 
       <div class="form-group">
-        <label for="title">題名</label>
-        <input type="type" class="form-control" id="title" placeholder="題名" required>
+        <%= f.label :title, "題名" %><br>
+        <%= f.text_area :title, placeholder: '題名を入力してください。' %>
       </div>
 
       <div class="form-group">
-        <label for="ab-description">説明大項目</label>
-    　　<textarea class="form-control" rows="2"　id="ab-description" placeholder="タスク進捗状況の概要を記載してください。" required></textarea>
+        <%= f.label :comment_summary, "説明大項目" %><br>
+        <%= f.text_area :comment_summary, placeholder: 'タスク進捗状況の概要を記載してください。' %>
       </div>
 
       <div class="form-group">
-        <label for="con-description">説明小項目</label>
-    　　<textarea class="form-control" rows="4"　id="ab-description" placeholder="タスク進捗状況の詳細を記載してください。" required></textarea>
+        <%= f.label :comment_descriptive, "説明小項目" %><br>
+        <%= f.text_area :comment_descriptive, placeholder: 'タスク進捗状況の詳細を記載してください。' %>
       </div>
 
       <div class="form-group">
-        <label for="category">ステータス</label>
-        <select class="form-control" id ="category" required>
-        <option value>選択してください</option>
-        <option value>未着手</option>
-        <option value>着手</option>
-        <option value>レビュー待ち</option>
-        <option value>レビューバック反映中</option>
-        <option value>完了</option>
-        <option value>却下</option>
-        </select>
+        <%= f.label :status, "ステータス" %><br>
+        <%= f.select :status, ["未着手", "遅延", "予定通り", "前倒し"], :prompt => "選択してください"%>
       </div>
 
       <div class="form-group">
-        <label for="worker">担当者</label>
-        <input type="type" class="form-control" id="worker" placeholder="担当者" required>
-      </div>
-
-<!--
-      <div class="form-group">
-        <label for="worker">担当者</label>
-        <select class="form-control" id ="category" required>
-        <option value>選択してください</option>
-        <option value></option>
-        <option value>山田 太朗</option>
-        </select>
-      </div>
--->
-
-      <div class="form-group">
-        <label for="related-ticket">関連チケット1</label>
-    　　<textarea class="form-control" rows="3"　id="ab-description" placeholder="前後関係のあるタスクを入力してください。"></textarea>
+        <%= f.label :PIC, "担当者" %><br>
+        <%= f.text_area :PIC, placeholder: '担当者を入力してください。' %>
       </div>
 
       <div class="form-group">
-        <label for="related-ticket">関連チケット2</label>
-    　　<textarea class="form-control" rows="3"　id="ab-description" placeholder="前後関係のあるタスクを入力してください。"></textarea>
+        <%= f.label :related_ticket1, "関連チケット1" %><br>
+        <%= f.text_area :related_ticket1, placeholder: '前後関係のあるタスクを入力してください。' %>
       </div>
 
       <div class="form-group">
-        <label for="related-ticket">関連チケット3</label>
-    　　<textarea class="form-control" rows="3"　id="ab-description" placeholder="前後関係のあるタスクを入力してください。"></textarea>
+        <%= f.label :related_ticket2, "関連チケット2" %><br>
+        <%= f.text_area :related_ticket2, placeholder: '前後関係のあるタスクを入力してください。' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :related_ticket3, "関連チケット3" %><br>
+        <%= f.text_area :related_ticket3, placeholder: '前後関係のあるタスクを入力してください。' %>
       </div>
 
       <div class="form-group" style="position: relative" required>
-        <label for="start-date">開始日</label>
-        <input type="text" class="form-control" id="start-date">
+        <%= f.label :start_date, "開始日" %><br>
+        <%= f.date_field :start_date, placeholder: '開始日を入力してください。' %>
       </div>
 
       <div class="form-group"　style="position: relative" requiredz>
-        <label for="finish-date">期日</label>
-        <input type="text" class="form-control" id="finish-date">
+        <%= f.label :due_date, "期日" %><br>
+        <%= f.date_field :due_date, placeholder: '期日を入力してください。' %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :progress_rate, "進捗率" %><br>
+        <%= f.select :progress_rate, ["0%", "30%", "50%", "80%","100%"], :prompt => "進捗率を記入してください。"%>
       </div>
 
       <div class="form-group">
-        <label for="percentage">進捗率</label>
-        <select class="form-control" id="percentage" placehold = "進捗率を記入してください。" required>
-        <option value>選択してください</option>
-        <option value>0％</option>
-        <option value>30％</option>
-        <option value>50％</option>
-        <option value>80％</option>
-        <option value>100％</option>
-        </select>
+        <%= f.label :watcher, "チケットのウォッチャー1" %><br>
+        <%= f.text_area :watcher, placeholder: '進捗を報告したい人を記載してください。' %>
       </div>
 
-      <div class="form-group">
-        <label for="worker">チケットのウォッチャー1</label>
-        <input type="type" class="form-control" id="watcher" placeholder="進捗を報告したい人を記載してください。">
-      </div>
-
-      <div class="form-group">
-        <label for="worker">チケットのウォッチャー2</label>
-        <input type="type" class="form-control" id="watcher" placeholder="進捗を報告したい人を記載してください。">
-      </div>
-
-      <div class="form-group">
-        <label for="worker">チケットのウォッチャー3</label>
-        <input type="type" class="form-control" id="watcher" placeholder="進捗を報告したい人を記載してください。">
-      </div>
-
-<!--!
-      <div class="form-group">
-        <label for="category">チケットのウォッチャー</label>
-        <select class="form-control" id ="select-watcher" required>
-        <option value>選択してください</option>
-        <option value>田中 花子</option>
-        <option value>設計</option>
-        </select>
-      </div>
--->
-
-      <button type="submit" class="btn btn-primary">作成</button>
+      <%= f.submit :class=>"btn btn-primary" %>
         <button type="submit" class="btn btn-dark">戻る</button>
-    </form>
+    <% end %>
     </article>
 　　</div> <!-- card.// -->
     </div>
