@@ -6,12 +6,6 @@
 <!------ Include the above in your HEAD tag ---------->
 <html lang="ja">
     
-<style>
-    body{
-        background: url(../img/tree_bark.png)
-    }
-    
-</style>
     
 <head>
 <title>ログイン画面</title>
@@ -20,7 +14,7 @@
 
 <body>
 <div class="container">
-<br>  <h2 class="text-center">ログイン</h2>
+<br>  <h2 class="text-center">メンバー編集画面</h2>
 <hr>
     </div>
 
@@ -29,33 +23,43 @@
 <div class="container">
 <div class="card mx-auto col-8 float-center">
 <article class="card-body">
-<h4 class="card-title mb-4 mt-1">サインイン</h4>
-   <form>
+
+	 <form>
     <div class="form-group">
-      <label>ユーザーID</label>
+    	<label>ユーザーID</label>
         <input name="" class="form-control" placeholder="shin.dartsbot" type="email">
-    </div> 
+    </div>
          
     <div class="form-group">
-      <label>email</label>
+    	<label>氏名</label>
+        <input name="" class="form-control" placeholder="谷崎真奈実" type="email">
+    </div>
+         
+    <div class="form-group">
+    	<label>email</label>
         <input name="" class="form-control" placeholder="Email" type="email">
     </div>
+         
+    <div class="form-group">
+    <label> <input type="checkbox"> 管理者</label>
+        
          <!-- form-group// -->
     <div class="form-group">
-      <label>パスワード</label>
+
+    	<label>パスワード</label>
         <input class="form-control" placeholder="******" type="password">
     </div> <!-- form-group// --> 
     <div class="form-group"> 
-    <div class="checkbox">
-      <label> <input type="checkbox">パスワードの保存</label>
-    </div> <!-- checkbox .// -->
+        <label>確認用パスワード</label>
+        <input class="form-control" placeholder="******" type="password">
+    </div>
+
     </div> <!-- form-group// -->  
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> 登録  </button>
 
     </div> <!-- form-group// -->                                                           
 </form>
-<%= render "devise/shared/links" %>
 </article>
 </div> <!-- card.// -->
     </div>
