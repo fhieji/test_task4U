@@ -1,23 +1,23 @@
 class TicketsController < ApplicationController
   def index
-  	@tickets = TicketRegistration.all
+  	@tickets = Ticket.all
   end
 
   def new
-    @tickets = TicketRegistration.new
+    @ticket = Ticket.new
   end
 
   def create
-    @tickets = Tickets.new(project_params)
-    if @tickets.save
+    @ticket = Ticket.new(tickets_params)
+    if @ticket.save
       redirect_to root_path, notice: 'チケットの作成に成功しました'
     else
-      redirect_to new_project_path, alert: 'チケットの作成に失敗しました'
+      redirect_to new_ticket_path, alert: 'チケットの作成に失敗しました'
     end
   end
 
   def show
-  	@tickets = Tickets.find(params[:id])
+  	@ticket = Ticket.find(params[:id])
   end
 
   def edit
@@ -26,6 +26,6 @@ class TicketsController < ApplicationController
   private
 
   def tickets_params
-    params.require(:tickets).permit(:category, :title, :comment_descriptive, :comment_summary, :status, :PIC, :related_ticket, :start_date, :due_date, :estimated_man_hour, :progress_rate, :watcher) 
+    params.require(:ticket).permit(:category, :title, :comment_descriptive, :comment_summary, :status, :PIC, :related_ticket1,:related_ticket2,:related_ticket3, :start_date, :due_date, :progress_rate, :watcher) 
   end
 end

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_04_29_120734) do
 
-  create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "projects", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "sub_title"
     t.string "image"
@@ -51,14 +51,16 @@ ActiveRecord::Schema.define(version: 2019_04_29_120734) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "ticket_registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "tickets", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "category"
     t.string "title"
     t.text "comment_descriptive"
     t.string "comment_summary"
     t.string "status"
     t.string "PIC"
-    t.string "related_ticket"
+    t.string "related_ticket1"
+    t.string "related_ticket2"
+    t.string "related_ticket3"
     t.date "start_date"
     t.date "due_date"
     t.integer "estimated_man_hour"
@@ -68,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_04_29_120734) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "user_registrations", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "surname"
     t.string "firstname"

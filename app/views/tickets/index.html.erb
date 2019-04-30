@@ -47,51 +47,18 @@
 
   <body>
     <h1 class="text-center">チケット一覧</h1>
-<!-- DBで保持しているチケットの一覧を表示する-->
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>カテゴリ</th>
-        <th>題名</th>
-        <th>担当者</th>
-        <th>ステータス</th>
-        <th>開始日</th>
-        <th>期日</th>
-        <th>進捗率</th>
-        <th>ウォッチャー1</th>
-        <th>ウォッチャー2</th>
-        <th>ウォッチャー3</th>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-          <td>要件定義</td>
-          <td>絶望の定義について考える</td>
-          <td>安田 萌々花</td>
-          <td>着手</td>
-          <td>2018/04/01</td>
-          <td>2018/04/07</td>
-          <td>進捗30%</td>
-          <td>たなまな</td>
-          <td>きっしー</td>
-          <td>ぐっさん</td>
-      <tr>
-        <th scope="row">2</th>
-          <td>要件定義</td>
-          <td>絶望の定義について考える</td>
-          <td>安田 萌々花</td>
-          <td>着手</td>
-          <td>2018/04/07</td>
-          <td>進捗30%</td>
-          <td>たなまな</td>
-          <td>きっしー</td>
-          <td>ぐっさん</td>
-      </tr>
-    </tbody>
-  </table>
-
-      </div>
+    <div class="container">
+      <div class="card mx-auto col-8 float-center">
+      <article class="card-body">
+  			<ul>
+  				<% @tickets.each do |tickets| %>
+  					<li>
+  						<%= link_to tickets.title, ticket_path(tickets) %>
+  					</li>
+  				<% end %>
+  			</ul>
+      </article>
+      </div> <!-- card.// -->
+    </div>
   </body>
 </html>
