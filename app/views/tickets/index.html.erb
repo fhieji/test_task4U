@@ -51,9 +51,9 @@
       <div class="card mx-auto col-8 float-center">
       <article class="card-body">
   			<ul>
-  				<% @tickets.each do |tickets| %>
+  				<% @tickets.each do |ticket| %>
   					<li>
-  						<%= link_to tickets.title, ticket_path(tickets) %>
+  						<%= link_to ticket.title, ticket_path(ticket) %>
   					</li>
   				<% end %>
   			</ul>
