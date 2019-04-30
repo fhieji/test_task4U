@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'users/index'
   devise_for :users
   root to: 'dashboards#index'
+  resources :users
   resources :projects
   resources :tickets
 
