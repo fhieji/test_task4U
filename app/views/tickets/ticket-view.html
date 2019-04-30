@@ -1,0 +1,169 @@
+<script
+  src="https://code.jquery.com/jquery-3.4.0.slim.js"
+  integrity="sha256-milezx5lakrZu0OP9b2QWFy1ft/UEUK6NH1Jqz8hUhQ="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<div<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!doctype html>
+<html lang="jp">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="#">
+
+          <img src="../../assets/images/logo.png" class ="w-25" alt="">
+
+        </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+    <div class="navbar-nav ml-auto">
+
+      <a class="nav-item mr-auto nav-link " href="#">ダッシュボード <span class="sr-only">(current)</span></a>
+
+      <a class="nav-item nav-link" href="#">チケット登録</a>
+
+      <a class="nav-item nav-link" href="#">チケット一覧</a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+    <title>チケット詳細</title>
+  </head>
+<!-- bootstrap-datepickerを読み込む -->
+<link rel="stylesheet" type="text/css" href="../GW_app/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.min.css">
+<script type="text/javascript" src="../GW_app/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="..//GW_app/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.ja.min.js"></script>
+
+  <body>
+    <h1 class="text-center">チケット詳細</h1>
+
+    <div class="container">
+    <div class="card mx-auto col-8 float-center">
+    <article class="card-body">
+    <form>
+      <div class="form-group">
+        <label for="category">カテゴリ</label>
+        <p>ユーザーテスト</p>
+      </div>
+
+      <div class="form-group">
+        <label for="title">題名</label>
+        <p>タイトル1</p>
+      </div>
+
+      <div class="form-group">
+        <label for="ab-description">説明大項目</label>
+    　　<p>チケットの概要</p>
+      </div>
+
+      <div class="form-group">
+        <label for="con-description">説明小項目</label>
+    　　<p>チケットの詳細</p>
+      </div>
+
+      <div class="form-group">
+        <label for="category">ステータス</label>
+        <p>レビューバック反映中</p>
+      </div>
+
+      <div class="form-group">
+        <label for="worker">担当者</label>
+        <p>今井 心</p>
+      </div>
+
+<!--
+      <div class="form-group">
+        <label for="worker">担当者</label>
+        <select class="form-control" id ="category" required>
+        <option value>選択してください</option>
+        <option value></option>
+        <option value>山田 太朗</option>
+        </select>
+      </div>
+-->
+
+      <div class="form-group">
+        <label for="related-ticket">関連チケット1</label>
+    　　カレー作成
+      </div>
+
+      <div class="form-group">
+        <label for="related-ticket">関連チケット2</label>
+    　　<p>買い出し</p>
+      </div>
+
+      <div class="form-group">
+        <label for="related-ticket">関連チケット3</label>
+    　　<p>片付け</p>
+      </div>
+
+      <div class="form-group" style="position: relative" required>
+        <p>4/10</p>
+      </div>
+
+      <div class="form-group"　style="position: relative" requiredz>
+        <p>5/10</p>
+      </div>
+
+      <div class="form-group">
+        <label for="percentage">進捗率</label>
+        <p>30％</p>
+      </div>
+
+      <div class="form-group">
+        <label for="worker">チケットのウォッチャー1</label>
+        <p>今井 心</p>
+      </div>
+
+      <div class="form-group">
+        <label for="worker">チケットのウォッチャー2</label>
+        <p>Go</p>
+      </div>
+
+      <div class="form-group">
+        <label for="worker">チケットのウォッチャー3</label>
+        <p>kishi</p>
+      </div>
+
+<!--!
+      <div class="form-group">
+        <label for="category">チケットのウォッチャー</label>
+        <select class="form-control" id ="select-watcher" required>
+        <option value>選択してください</option>
+        <option value>田中 花子</option>
+        <option value>設計</option>
+        </select>
+      </div>
+-->
+
+        <button type="submit" class="btn btn-dark">戻る</button>
+    </form>
+    </article>
+　　</div> <!-- card.// -->
+    </div>
+
+  </body>
+<!-- bootstrap-datepicker javascript -->
+
+</html>

@@ -1,0 +1,212 @@
+<script
+  src="https://code.jquery.com/jquery-3.4.0.slim.js"
+  integrity="sha256-milezx5lakrZu0OP9b2QWFy1ft/UEUK6NH1Jqz8hUhQ="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!doctype html>
+<html lang="jp">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="#">
+
+          <img src="../../assets/images/logo.png" class ="w-25" alt="">
+
+        </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+    <div class="navbar-nav ml-auto">
+
+      <a class="nav-item mr-auto nav-link " href="#">ダッシュボード <span class="sr-only">(current)</span></a>
+
+      <a class="nav-item nav-link" href="#">チケット登録</a>
+
+      <a class="nav-item nav-link" href="#">チケット一覧</a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+    <title>チケット編集</title>
+  </head>
+<!-- bootstrap-datepickerを読み込む -->
+<link rel="stylesheet" type="text/css" href="../../assets/javascripts/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.min.css">
+<script type="text/javascript" src="../../assets/javascripts/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="../../assets/javascripts/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.ja.min.js"></script>
+    
+  <body>
+    <h1 class="text-center">チケット編集</h1>
+
+    <div class="container">
+    <div class="card mx-auto col-8 float-center">
+    <article class="card-body">
+    <form>
+      <div class="form-group">
+        <label for="category">カテゴリ</label>
+        <select class="form-control" id ="category" required>
+        <option value>選択してください。</option>
+        <option value>要件定義</option>
+        <option value>設計</option>
+        <option value>開発</option>
+        <option value>単体テスト</option>
+        <option value>結合テスト</option>
+        <option value>ユーザーテスト</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="title">題名</label>
+        <input type="type" class="form-control" id="title" placeholder="題名" required>
+      </div>
+
+      <div class="form-group">
+        <label for="ab-description">説明大項目</label>
+    　　<textarea class="form-control" rows="2"　id="ab-description" placeholder="タスク進捗状況の概要を記載してください。" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="con-description">説明小項目</label>
+    　　<textarea class="form-control" rows="4"　id="ab-description" placeholder="タスク進捗状況の詳細を記載してください。" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="category">ステータス</label>
+        <select class="form-control" id ="category" required>
+        <option value>選択してください</option>
+        <option value>未着手</option>
+        <option value>着手</option>
+        <option value>レビュー待ち</option>
+        <option value>レビューバック反映中</option>
+        <option value>完了</option>
+        <option value>却下</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="worker">担当者</label>
+        <input type="type" class="form-control" id="worker" placeholder="担当者" required>
+      </div>
+
+<!--
+      <div class="form-group">
+        <label for="worker">担当者</label>
+        <select class="form-control" id ="category" required>
+        <option value>選択してください</option>
+        <option value></option>
+        <option value>山田 太朗</option>
+        </select>
+      </div>
+-->
+
+      <div class="form-group">
+        <label for="related-ticket">関連チケット1</label>
+    　　<textarea class="form-control" rows="3"　id="ab-description" placeholder="前後関係のあるタスクを入力してください。"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="related-ticket">関連チケット2</label>
+    　　<textarea class="form-control" rows="3"　id="ab-description" placeholder="前後関係のあるタスクを入力してください。"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="related-ticket">関連チケット3</label>
+    　　<textarea class="form-control" rows="3"　id="ab-description" placeholder="前後関係のあるタスクを入力してください。"></textarea>
+      </div>
+
+      <div class="form-group" style="position: relative" required>
+        <label for="start-date">開始日</label>
+        <input type="text" class="form-control" id="start-date">
+      </div>
+
+      <div class="form-group"　style="position: relative" requiredz>
+        <label for="finish-date">期日</label>
+        <input type="text" class="form-control" id="finish-date">
+      </div>
+
+      <div class="form-group">
+        <label for="percentage">進捗率</label>
+        <select class="form-control" id="percentage" placehold = "進捗率を記入してください。" required>
+        <option value>選択してください</option>
+        <option value>0％</option>
+        <option value>30％</option>
+        <option value>50％</option>
+        <option value>80％</option>
+        <option value>100％</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="worker">チケットのウォッチャー1</label>
+        <input type="type" class="form-control" id="watcher" placeholder="進捗を報告したい人を記載してください。">
+      </div>
+
+      <div class="form-group">
+        <label for="worker">チケットのウォッチャー2</label>
+        <input type="type" class="form-control" id="watcher" placeholder="進捗を報告したい人を記載してください。">
+      </div>
+
+      <div class="form-group">
+        <label for="worker">チケットのウォッチャー3</label>
+        <input type="type" class="form-control" id="watcher" placeholder="進捗を報告したい人を記載してください。">
+      </div>
+
+<!--!
+      <div class="form-group">
+        <label for="category">チケットのウォッチャー</label>
+        <select class="form-control" id ="select-watcher" required>
+        <option value>選択してください</option>
+        <option value>田中 花子</option>
+        <option value>設計</option>
+        </select>
+      </div>
+-->
+
+      <button type="submit" class="btn btn-dark float-left">戻る</button>
+        <button type="submit" class="btn btn-primary float-right">更新</button>
+    </form>
+    </article>
+　　</div> <!-- card.// -->
+    </div>
+
+  </body>
+<!-- bootstrap-datepicker javascript -->
+<script>
+$(function () {
+  $('#start-date').datepicker({
+    autoclose: true,
+    format: 'yyyy/mm/dd',
+    language:'ja'
+});
+});
+</script>
+<script>
+$(function () {
+  $('#finish-date').datepicker({
+    autoclose: true,
+    format: 'yyyy/mm/dd',
+    language:'ja'
+});
+});
+</script>
+</html>
