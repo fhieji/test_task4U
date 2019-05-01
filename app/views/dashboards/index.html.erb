@@ -66,7 +66,7 @@
 
       </div>
 
-      <div　class="text-left">
+      <div class="text-left">
         <h2>要確認チケット</h2>
 <div class="container">
   <table class="table">
@@ -81,33 +81,20 @@
         <th>期日</th>
         <th>進捗率</th>
         <th>ウォッチャー1</th>
-        <th>ウォッチャー2</th>
-        <th>ウォッチャー3</th>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-          <td>要件定義</td>
-          <td>絶望の定義について考える</td>
-          <td>安田 萌々花</td>
-          <td>着手</td>
-          <td>2018/04/01</td>
-          <td>2018/04/07</td>
-          <td>進捗30%</td>
-          <td>たなまな</td>
-          <td>きっしー</td>
-          <td>ぐっさん</td>
-      <tr>
-        <th scope="row">2</th>
-          <td>要件定義</td>
-          <td>絶望の定義について考える</td>
-          <td>安田 萌々花</td>
-          <td>着手</td>
-          <td>2018/04/07</td>
-          <td>進捗30%</td>
-          <td>たなまな</td>
-          <td>きっしー</td>
-          <td>ぐっさん</td>
-      </tr>
+      <% @tickets.each do |ticket| %>
+        <tr>
+          <th><%= ticket.id %></th>
+          <th><%= ticket.category %></th>
+          <th><%= ticket.title %></th>
+          <th><%= ticket.PIC %></th>
+          <th><%= ticket.status %></th>
+          <th><%= ticket.start_date %></th>
+          <th><%= ticket.due_date %></th>
+          <th><%= ticket.progress_rate %></th>
+          <th><%= ticket.watcher %></th>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 
