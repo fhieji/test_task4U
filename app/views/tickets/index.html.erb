@@ -48,17 +48,41 @@
   <body>
     <h1 class="text-center">チケット一覧</h1>
     <div class="container">
-      <div class="card mx-auto col-8 float-center">
-      <article class="card-body">
-  			<ul>
-  				<% @tickets.each do |ticket| %>
-  					<li>
-  						<%= link_to ticket.title, ticket_path(ticket) %>
-  					</li>
-  				<% end %>
-  			</ul>
-      </article>
-      </div> <!-- card.// -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>カテゴリ</th>
+            <th>題名</th>
+            <th>担当者</th>
+            <th>ステータス</th>
+            <th>開始日</th>
+            <th>期日</th>
+            <th>進捗率</th>
+            <th>ウォッチャー</th>
+            <th>アクション</th>
+        </thead>
+        <tbody>
+          <% @tickets.each do |ticket| %>
+            <tr>
+              <th><%= ticket.id %></th>
+              <th><%= ticket.category %></th>
+              <th><%= ticket.title %></th>
+              <th><%= ticket.PIC %></th>
+              <th><%= ticket.status %></th>
+              <th><%= ticket.start_date %></th>
+              <th><%= ticket.due_date %></th>
+              <th><%= ticket.progress_rate %></th>
+              <th><%= ticket.watcher %></th>
+              <th>
+                <%= link_to '詳細', ticket_path(ticket), class: "btn btn-success" %>
+                <!-- TODO 削除機能の実装 -->
+                <%= link_to '削除', '', class: "btn btn-danger" %>
+              </th>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </body>
 </html>
