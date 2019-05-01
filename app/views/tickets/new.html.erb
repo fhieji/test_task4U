@@ -80,7 +80,7 @@
 
       <div class="form-group">
         <%= f.label :PIC, "担当者" %><br>
-        <%= f.text_area :PIC, placeholder: '担当者を入力してください。' %>
+        <%= f.collection_select :PIC, User.all, :id, :surname %>
       </div>
 
       <div class="form-group">
