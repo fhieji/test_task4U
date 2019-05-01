@@ -80,7 +80,8 @@
         <th>開始日</th>
         <th>期日</th>
         <th>進捗率</th>
-        <th>ウォッチャー1</th>
+        <th>ウォッチャー</th>
+        <th>操作</th>
     <tbody>
       <% @tickets.each do |ticket| %>
         <tr>
@@ -93,6 +94,11 @@
           <th><%= ticket.due_date %></th>
           <th><%= ticket.progress_rate %></th>
           <th><%= ticket.watcher %></th>
+          <th>
+            <%= link_to '詳細', ticket_path(ticket), class: "btn btn-success" %>
+            <!-- TODO 削除機能の実装 -->
+            <%= link_to '削除', '', class: "btn btn-danger" %>
+          </th>
         </tr>
       <% end %>
     </tbody>
