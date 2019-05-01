@@ -10,7 +10,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(tickets_params)
     if @ticket.save
-      redirect_to root_path, notice: 'チケットの作成に成功しました'
+      redirect_to tickets_path, notice: 'チケットの作成に成功しました'
     else
       redirect_to new_ticket_path, alert: 'チケットの作成に失敗しました'
     end
