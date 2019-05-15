@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_120734) do
+ActiveRecord::Schema.define(version: 2019_05_04_042808) do
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -68,6 +68,34 @@ ActiveRecord::Schema.define(version: 2019_04_29_120734) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ticket_watchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_ticket_watchers_on_ticket_id"
+    t.index ["user_id"], name: "index_ticket_watchers_on_user_id"
+  end
+
+  create_table "tickets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category"
+    t.string "title"
+    t.text "comment_descriptive"
+    t.string "comment_summary"
+    t.string "status"
+    t.string "PIC"
+    t.string "related_ticket1"
+    t.string "related_ticket2"
+    t.string "related_ticket3"
+    t.date "start_date"
+    t.date "due_date"
+    t.integer "estimated_man_hour"
+    t.float "progress_rate"
+    t.string "watcher"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "surname"
@@ -89,8 +117,11 @@ ActiveRecord::Schema.define(version: 2019_04_29_120734) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin"
+    t.string "surname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ticket_watchers", "tickets"
+  add_foreign_key "ticket_watchers", "users"
 end
