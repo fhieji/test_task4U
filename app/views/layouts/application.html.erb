@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PocPortal</title>
+    <title>Task4U</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,13 +10,12 @@
   </head>
 
   <body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-	<% if user_signed_in? %>
-	<p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-	<% end %>
-    <div class="container">
-      <%= yield %>
-    </div>
+  <!-- 	<p class="notice"><%= notice %></p>
+  	<p class="alert"><%= alert %></p> -->
+  	<% if user_signed_in? %>
+  	<p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+  	<% end %>
+
+    <%= yield %>
   </body>
 </html>

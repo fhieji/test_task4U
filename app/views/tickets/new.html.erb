@@ -1,51 +1,64 @@
-<div class="project-new">
-  <%= form_for(@project) do |f| %>
-    <div class="field">
-      <%= f.label :title, "実証実験タイトル" %><br>
-      <%= f.text_field :title %>
+
+  <head>
+    <title>チケット作成</title>
+  </head>
+
+
+  <body>
+      <%= render 'layouts/header' %>
+    <h1 class="text-center">チケット登録</h1>
+
+    <div class="container">
+    <div class="card mx-auto col-8 float-center">
+    <article class="card-body">
+     <%= form_for(@ticket) do |f| %>
+
+     <%= f.label :category, "カテゴリ" , class: 'form-group py-1' %><br>
+     <%= f.select :category, ["要件定義", "設計", "開発", "単体テスト", "結合テスト", "ユーザーテスト"], {}, class: 'form-control' %>
+
+     <%= f.label :title, "題名", class: 'form-group py-1' %><br>
+     <%= f.text_field :title, placeholder: '題名を入力してください。',class: 'form-control' %>
+
+     <%= f.label :comment_summary, "説明大項目", class: 'form-group py-1' %><br>
+     <%= f.text_area :comment_summary, placeholder: 'タスク進捗状況の概要を記載してください。',class: 'form-control' %>
+
+     <%= f.label :comment_descriptive, "説明小項目", class: 'form-group py-1' %><br>
+     <%= f.text_area :comment_descriptive, placeholder: 'タスク進捗状況の詳細を記載してください。',class: 'form-control' %>
+
+     <%= f.label :status, "ステータス", class: 'form-group py-1' %><br>
+     <%= f.select :status, ["未着手", "遅延", "予定通り", "前倒し"],{}, class: 'form-control'%>
+
+     <%= f.label :PIC, "担当者", class: 'form-group py-1' %><br>
+     <%= f.collection_select :PIC, User.all, :id, :surname,class: 'form-control' %><br>
+
+     <%= f.label :related_ticket1, "関連チケット1", class: 'form-group py-1' %><br>
+     <%= f.text_area :related_ticket1, placeholder: '前後関係のあるタスクを入力してください。',class: 'form-control' %>
+
+     <%= f.label :related_ticket2, "関連チケット2", class: 'form-group py-1' %><br>
+     <%= f.text_area :related_ticket2, placeholder: '前後関係のあるタスクを入力してください。',class: 'form-control' %>
+
+     <%= f.label :related_ticket3, "関連チケット3", class: 'form-group py-1' %><br>
+     <%= f.text_area :related_ticket3, placeholder: '前後関係のあるタスクを入力してください。',class: 'form-control' %>
+
+     <%= f.label :start_date, "開始日", class: 'form-group py-1' %><br>
+     <%= f.date_field :start_date, placeholder: '開始日を入力してください。',class: 'form-control' %>
+
+     <%= f.label :due_date, "期日", class: 'form-group py-1' %><br>
+     <%= f.date_field :due_date, placeholder: '期日を入力してください。',class: 'form-control' %>
+
+
+     <%= f.label :progress_rate, "進捗率", class: 'form-group py-1' %><br>
+     <%= f.select :progress_rate, ["0%", "30%", "50%", "80%","100%"],{}, class: 'form-control'%>
+
+
+     <%= f.label :watcher, "チケットのウォッチャー1", class: 'form-group py-1' %><br>
+     <%= f.text_area :watcher, placeholder: '進捗を報告したい人を記載してください。', class: 'form-control' %>
+
+   <%= f.submit :class=>"btn btn-primary py-1" %>
+     <%= link_to '戻る', :back, class: 'btn btn-dark' %>
+ <% end %>
+    </article>
+　　</div> <!-- card.// -->
     </div>
-    <div class="field">
-      <%= f.label :sub_title, "メッセージライン" %><br>
-      <%= f.text_area :sub_title %>
-    </div>
-    <div class="field">
-      <%= f.label :image, "アイキャッチ画像URL" %><br>
-      <%= f.text_field :image %>
-    </div>
-    <div class="field">
-      <%= f.label :client, "主催" %><br>
-      <%= f.text_field :client %>
-    </div>
-        <div class="field">
-      <%= f.label :period, "期間" %><br>
-      <%= f.text_field :period %>
-    </div>
-    <div class="field">
-      <%= f.label :place, "場所" %><br>
-      <%= f.text_field :place %>
-    </div>
-    <div class="field">
-      <%= f.label :press_date, "プレスリリース日" %><br>
-      <%= f.date_field :press_date %>
-    </div>
-    <div class="field">
-      <%= f.label :service, "サービス内容" %><br>
-      <%= f.text_area :service %>
-    </div>
-    <div class="field">
-      <%= f.label :reference, "関連情報" %><br>
-      <%= f.text_area :reference %>
-    </div>
-    <div class="field">
-      <%= f.label :category_list, "カテゴリ" %><br>
-      <%= text_field_tag 'project[category_list]', @project.category_list.join(','), "data-role" => "tagsinput" %>
-    </div>
-    <div class="field">
-      <%= f.label :technology_list, "要素技術" %><br>
-      <%= text_field_tag 'project[technology_list]', @project.technology_list.join(','), "data-role" => "tagsinput" %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
-</div>
+
+  </body>

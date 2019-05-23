@@ -1,0 +1,109 @@
+<script
+  src="https://code.jquery.com/jquery-3.4.0.slim.js"
+  integrity="sha256-milezx5lakrZu0OP9b2QWFy1ft/UEUK6NH1Jqz8hUhQ="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<div<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!doctype html>
+<html lang="jp">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/">
+      <%= image_tag 'logo.png', class: "w-25", alt: "" %>
+    </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+    <div class="navbar-nav ml-auto">
+      <%= link_to 'ダッシュボード', root_path, class: "nav-item mr-auto nav-link active" %><span class="sr-only">(current)</span>
+      <%= link_to 'チケット登録', new_ticket_path, class: "nav-item nav-link" %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to 'チケット一覧', tickets_path, class: "nav-item nav-link" %>
+    </div>
+
+  </div>
+
+</nav>
+
+
+    <title>ダッシュボード</title>
+  </head>
+
+
+  <body>
+    <h1 class="text-center">ダッシュボード</h1>
+
+      <div　class="text-left">
+        <h2>サマリ</h2>
+      </div>
+
+      <div　class="text-left">
+        <h2>お知らせ</h2>
+        <form>
+          <div class="form-group">
+          <label for="ab-description">説明大項目</label>
+    　　  <textarea class="form-control" rows="2"　id="ab-description" placeholder="タスク進捗状況の概要を記載してください。" required></textarea>
+          </div>
+        </form>
+      </div>
+
+      </div>
+
+      <div class="text-left">
+        <h2>要確認チケット</h2>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>カテゴリ</th>
+        <th>題名</th>
+        <th>担当者</th>
+        <th>ステータス</th>
+        <th>開始日</th>
+        <th>期日</th>
+        <th>進捗率</th>
+        <th>ウォッチャー</th>
+        <th>操作</th>
+    <tbody>
+      <% @tickets.each do |ticket| %>
+        <tr>
+          <th><%= ticket.id %></th>
+          <th><%= ticket.category %></th>
+          <th><%= ticket.title %></th>
+          <th><%= ticket.PIC %></th>
+          <th><%= ticket.status %></th>
+          <th><%= ticket.start_date %></th>
+          <th><%= ticket.due_date %></th>
+          <th><%= ticket.progress_rate %></th>
+          <th><%= ticket.watcher %></th>
+          <th>
+            <%= link_to '詳細', ticket_path(ticket), class: "btn btn-success my-1 mp-1" %>
+            <!-- TODO 削除機能の実装 -->
+            <%= link_to '削除', '', class: "btn btn-danger" %>
+          </th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+      </div>
+  </body>
+</html>

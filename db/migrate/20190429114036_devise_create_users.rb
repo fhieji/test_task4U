@@ -3,6 +3,10 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
+      ##Added with the request from team. 
+      t.integer :user_id
+      t.string :surname
+      t.string :firstname
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -13,6 +17,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       ## Rememberable
       t.datetime :remember_created_at
+      
+      ## Added from the request from the team
+      t.date :registrartion_date
+      t.integer :administraton_flag
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

@@ -1,0 +1,64 @@
+
+  <head>
+    <title>チケット編集</title>
+  </head>
+
+
+  <body>
+      <%= render 'layouts/header' %>
+    <h1 class="text-center">チケット編集</h1>
+
+    <div class="container">
+    <div class="card mx-auto col-8 float-center">
+    <article class="card-body">
+     <%= form_for(@ticket) do |f| %>
+
+        <%= f.label :category, "カテゴリ" , class: 'form-group py-1' %><br>
+        <%= f.select :category, ["要件定義", "設計", "開発", "単体テスト", "結合テスト", "ユーザーテスト"], {}, class: 'form-control' %>
+
+        <%= f.label :title, "題名", class: 'form-group py-1' %><br>
+        <%= f.text_field :title, placeholder: '題名を入力してください。',class: 'form-control' %>
+
+        <%= f.label :comment_summary, "説明大項目", class: 'form-group py-1' %><br>
+        <%= f.text_area :comment_summary, placeholder: 'タスク進捗状況の概要を記載してください。',class: 'form-control' %>
+
+        <%= f.label :comment_descriptive, "説明小項目", class: 'form-group py-1' %><br>
+        <%= f.text_area :comment_descriptive, placeholder: 'タスク進捗状況の詳細を記載してください。',class: 'form-control' %>
+
+        <%= f.label :status, "ステータス", class: 'form-group py-1' %><br>
+        <%= f.select :status, ["未着手", "遅延", "予定通り", "前倒し"],{}, class: 'form-control'%>
+
+        <%= f.label :PIC, "担当者", class: 'form-group py-1' %><br>
+        <%= f.collection_select :PIC, User.all, :id, :surname,class: 'form-control' %><br>
+
+        <%= f.label :related_ticket1, "関連チケット1", class: 'form-group py-1' %><br>
+        <%= f.text_area :related_ticket1, placeholder: '前後関係のあるタスクを入力してください。',class: 'form-control' %>
+
+        <%= f.label :related_ticket2, "関連チケット2", class: 'form-group py-1' %><br>
+        <%= f.text_area :related_ticket2, placeholder: '前後関係のあるタスクを入力してください。',class: 'form-control' %>
+
+        <%= f.label :related_ticket3, "関連チケット3", class: 'form-group py-1' %><br>
+        <%= f.text_area :related_ticket3, placeholder: '前後関係のあるタスクを入力してください。',class: 'form-control' %>
+
+        <%= f.label :start_date, "開始日", class: 'form-group py-1' %><br>
+        <%= f.date_field :start_date, placeholder: '開始日を入力してください。',class: 'form-control' %>
+
+        <%= f.label :due_date, "期日", class: 'form-group py-1' %><br>
+        <%= f.date_field :due_date, placeholder: '期日を入力してください。',class: 'form-control' %>
+
+
+        <%= f.label :progress_rate, "進捗率", class: 'form-group py-1' %><br>
+        <%= f.select :progress_rate, ["0%", "30%", "50%", "80%","100%"],{}, class: 'form-control'%>
+
+
+        <%= f.label :watcher, "チケットのウォッチャー1", class: 'form-group py-1' %><br>
+        <%= f.text_area :watcher, placeholder: '進捗を報告したい人を記載してください。', class: 'form-control' %>
+
+      <%= f.submit :class=>"btn btn-primary py-1" %>
+        <%= link_to '戻る', :back, class: 'btn btn-dark' %>
+    <% end %>
+    </article>
+　　</div> <!-- card.// -->
+    </div>
+
+  </body>
