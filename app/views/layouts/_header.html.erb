@@ -6,7 +6,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <a class="navbar-brand" href="/">
     <%= image_tag 'logo.png', class: "w-25", alt: "" %>
@@ -19,7 +19,7 @@
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-    <div class="navbar-nav ml-auto">
+    <div class="navbar-nav ml-auto navbar-dark bg-dark">
     <%= link_to 'ダッシュボード', root_path, class: "nav-item mr-auto nav-link" %><span class="sr-only">(current)</span>
       <%= link_to 'チケット登録', new_ticket_path, class: "nav-item nav-link active" %>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -30,6 +30,14 @@
 
 </nav>
 
+<style>
+
+  body {
+      color: #ffffff;
+      background-color: #303030;
+  }
+
+</style>
 
   <title>チケット作成</title>
 </head>

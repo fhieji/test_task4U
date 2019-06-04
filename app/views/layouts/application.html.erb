@@ -6,16 +6,23 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   <!-- 	<p class="notice"><%= notice %></p>
   	<p class="alert"><%= alert %></p> -->
-  	<% if user_signed_in? %>
-  	<p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-  	<% end %>
+
 
     <%= yield %>
   </body>
+  <footer>
+    <nav class="navbar navbar-dark bg-dark justify-content-end">
+    <% if user_signed_in? %>
+    <span class="navbar-brand">
+      <%= link_to "ログアウト", destroy_user_session_path, class: "text-light", method: :delete %>
+    </span>
+    <% end %>
+    </nav>
+  </footer>
 </html>
