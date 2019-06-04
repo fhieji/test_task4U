@@ -1,0 +1,17 @@
+@import "bootstrap";
+
+.statusdelay {background-color: salmon;}
+.statuscomp {background-color: gainsboro;}
+.statusdelaycomp {background-color: gainsboro;}
+
+body {
+    color: #ffffff;
+    background-color: #303030;
+}
+
+footer {
+  position: fixed;
+  float: right;
+  bottom: 0;
+  width: 100%;
+}
