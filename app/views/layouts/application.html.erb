@@ -20,7 +20,7 @@
     <nav class="navbar navbar-dark bg-dark justify-content-end">
     <% if user_signed_in? %>
     <span class="navbar-brand">
-      <%= link_to "ログアウト", destroy_user_session_path, class: "text-light", method: :delete %>
+      <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-outline-light", method: :delete %>
     </span>
     <% end %>
     </nav>

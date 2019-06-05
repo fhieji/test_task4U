@@ -45,9 +45,9 @@
           <th><%= ticket.progress_rate %></th>
           <th><%= ticket.watcher %></th>
           <th>
-            <%= link_to '詳細', ticket_path(ticket), class: "btn btn-success my-1 mp-1" %>
+            <%= link_to '詳細', ticket_path(ticket), class: "btn btn-outline-info my-1 mp-1" %>
             <!-- TODO 削除機能の実装 -->
-            <%= link_to '削除', ticket_path(ticket), method: :delete, class: "btn btn-danger mb-1" %>
+            <%= link_to '削除', ticket_path(ticket), method: :delete, class: "btn btn-outline-danger mb-1" %>
           </th>
         </tr>
       <% end %>
