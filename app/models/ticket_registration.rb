@@ -1,2 +1,0 @@
-class TicketRegistration < ApplicationRecord
-end

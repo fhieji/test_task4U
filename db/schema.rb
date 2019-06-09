@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_042808) do
+ActiveRecord::Schema.define(version: 2019_06_08_125424) do
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -51,23 +51,6 @@ ActiveRecord::Schema.define(version: 2019_05_04_042808) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "ticket_registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "category"
-    t.string "title"
-    t.text "comment_descriptive"
-    t.string "comment_summary"
-    t.string "status"
-    t.string "PIC"
-    t.string "related_ticket"
-    t.date "start_date"
-    t.date "due_date"
-    t.integer "estimated_man_hour"
-    t.float "progress_rate"
-    t.string "watcher"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "ticket_watchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "ticket_id"
@@ -92,18 +75,6 @@ ActiveRecord::Schema.define(version: 2019_05_04_042808) do
     t.integer "estimated_man_hour"
     t.float "progress_rate"
     t.string "watcher"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "surname"
-    t.string "firstname"
-    t.string "email_address"
-    t.date "registrartion_date"
-    t.integer "administraton_flag"
-    t.integer "delete_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
