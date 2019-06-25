@@ -1,9 +1,31 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+
 <u1><% @users.each do |user| %>
   <li>
-  <%= user.email %> 
+  <%= user.id %><br>
+  <%= user.role %><br>
+
+    <% unless user.ticket_watchers.empty?%>
+    <p>ウォッチャー指定</p>
+      <% @tickets.each do |ticket| %>
+      <%= ticket.category %><br>
+      <%= ticket.status %>
+      <% end %>
+    <% end %>
 </li>
-<% end %>
+  <% end %>
+<% if current_user.admin? %>
+
+<% end %><br>
+
+<br>
+<p>これにしたい</p>
 </u1>
 
+<div class="btn-group btn-group-toggle mx-2" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> general
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> admin
+  </label>
+</div>

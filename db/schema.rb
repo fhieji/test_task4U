@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_08_125424) do
+ActiveRecord::Schema.define(version: 2019_06_15_120948) do
+
+  create_table "dashboards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "notice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -51,6 +58,14 @@ ActiveRecord::Schema.define(version: 2019_06_08_125424) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "Teams_id"
+    t.index ["users_id"], name: "index_teams_on_users_id"
+  end
+
   create_table "ticket_watchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "ticket_id"
@@ -87,12 +102,13 @@ ActiveRecord::Schema.define(version: 2019_06_08_125424) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin"
     t.string "surname"
+    t.integer "role", default: 1, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "teams", "users", column: "users_id"
   add_foreign_key "ticket_watchers", "tickets"
   add_foreign_key "ticket_watchers", "users"
 end

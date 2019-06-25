@@ -1,69 +1,27 @@
-<!doctype html>
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<html lang="ja">
-    
-    
-<head>
-<title>ログイン画面</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
 <body>
-<div class="container">
-<br>  <h2 class="text-center">メンバー編集画面</h2>
-<hr>
-    </div>
+  <h1 class="text-center my-3">ユーザー編集</h1>
 
+  <div class="container">
+  <div class="card mx-auto col-8 float-center bg-secondary mb-5 my-3">
+  <article class="card-body py-3">
+   <%= form_for(@user) do |f| %>
 
+   <%= f.label :email, "email" , class: 'form-group py-1' %><br>
+   <%= f.text_field :email,  class: 'form-control' %>
 
-<div class="container">
-<div class="card mx-auto col-8 float-center">
-<article class="card-body">
+   <%= f.label :surname, "名前", class: 'form-group py-1' %><br>
+   <%= f.text_field :surname,class: 'form-control' %>
 
-	 <form>
-    <div class="form-group">
-    	<label>ユーザーID</label>
-        <input name="" class="form-control" placeholder="shin.dartsbot" type="email">
-    </div>
-         
-    <div class="form-group">
-    	<label>氏名</label>
-        <input name="" class="form-control" placeholder="谷崎真奈実" type="email">
-    </div>
-         
-    <div class="form-group">
-    	<label>email</label>
-        <input name="" class="form-control" placeholder="Email" type="email">
-    </div>
-         
-    <div class="form-group">
-    <label> <input type="checkbox"> 管理者</label>
-        
-         <!-- form-group// -->
-    <div class="form-group">
+   <%= f.radio_button(:role, "general") %>
+   <%= f.label(:role, "general", value: "general")  %>
+   <%= f.radio_button(:role, "admin") %>
+   <%= f.label(:role, "admin", value: "admin") %><br>
 
-    	<label>パスワード</label>
-        <input class="form-control" placeholder="******" type="password">
-    </div> <!-- form-group// --> 
-    <div class="form-group"> 
-        <label>確認用パスワード</label>
-        <input class="form-control" placeholder="******" type="password">
-    </div>
-
-    </div> <!-- form-group// -->  
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> 登録  </button>
-
-    </div> <!-- form-group// -->                                                           
-</form>
-</article>
-</div> <!-- card.// -->
-    </div>
-
+   <%= f.submit :class=>"btn btn-primary my-2" %>
+    <%= link_to '戻る', :back, class: 'btn btn-dark my-2' %>
+    <% end %>
+  </article>
+　　</div> <!-- card.// -->
+  </div>
 
 </body>
-</html>

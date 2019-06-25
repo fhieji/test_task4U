@@ -43,13 +43,18 @@
      <%= f.label :progress_rate, "進捗率", class: 'form-group py-1' %><br>
      <%= f.select :progress_rate, ["0%", "30%", "50%", "80%","100%"],{}, class: 'form-control'%>
 
+     <%= f.label :users %><br>
+  <%= f.collection_check_boxes(:user_ids, User.all, :id, :surname ) do |t|  %>
+    <% t.label { t.check_box + t.text } %>
+  <% end %>
 
-     <%= f.label :watcher, "チケットのウォッチャー1", class: 'form-group py-1' %><br>
-     <%= f.text_area :watcher, placeholder: '進捗を報告したい人を記載してください。', class: 'form-control' %>
 
    <%= f.submit :class=>"btn btn-primary my-2" %>
      <%= link_to '戻る', :back, class: 'btn btn-dark my-2' %>
+
  <% end %>
+
+
     </article>
 　　</div> <!-- card.// -->
     </div>
