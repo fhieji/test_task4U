@@ -1,23 +1,3 @@
-<!doctype html>
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<html lang="ja">
-    
-<style>
-    body{
-        background: url(../img/tree_bark.png)
-    }
-    
-</style>
-    
-<head>
-<title>ログイン画面</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
 <body>
 <div class="container">
 <br>  <h2 class="text-center">ログイン</h2>
@@ -27,40 +7,26 @@
 
 
 <div class="container">
-<div class="card mx-auto col-8 float-center">
+<div class="card mx-auto col-8 float-center bg-secondary">
 <article class="card-body">
 <h4 class="card-title mb-4 mt-1">サインイン</h4>
    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-group">
-      <%= f.label :user_id %><br />
-      <%= f.number_field :user_id %>
-    </div> 
-         
-    <div class="form-group">
-      <label>email</label>
-        <input name="" class="form-control" placeholder="Email" type="email">
-    </div>
-         <!-- form-group// -->
-    <div class="form-group">
-      <label>パスワード</label>
-        <input class="form-control" placeholder="******" type="password">
-    </div> <!-- form-group// --> 
-    <div class="form-group"> 
-    <div class="checkbox">
+   
+      <%= f.label :email, "email", class:'form-group py-1' %><br>
+      <%= f.text_field :email %><br>
+
+      <%= f.label :password, "パスワード", class:'form-group py-1' %><br>
+      <%= f.text_field :password %><br>
+
+    <div class="checkbox  pt-5">
       <label> <input type="checkbox">パスワードの保存</label>
     </div> <!-- checkbox .// -->
-    </div> <!-- form-group// -->  
-    <div class="form-group">
-        <%= f.submit "登録", class: "btn btn-primary btn-block" %>
-<!--         <button type="submit" class="btn btn-primary btn-block"> 登録  </button> -->
+    </div> <!-- form-group// -->
 
-    </div> <!-- form-group// -->                                                           
-<% end %>
-<%= render "devise/shared/links" %>
-</article>
-</div> <!-- card.// -->
+      <%= f.submit "ログイン", class: "d-block mx-auto col-8 btn btn-outline-primary my-3" %><br>
     </div>
 
+    <% end %>
+          <%= render "devise/shared/links"%>
 
 </body>
-</html>

@@ -1,0 +1,3 @@
+yama:
+    email: tes@test.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
