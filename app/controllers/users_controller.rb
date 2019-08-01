@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    redirect_to @user
+    redirect_to root_path
   end
   #the action to update the data
   def update
@@ -37,6 +37,6 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:id,:surname, :email, :role)
+    params.require(:user).permit(:id,:surname, :email, :role, { :user_ids=> [] })
   end
 end

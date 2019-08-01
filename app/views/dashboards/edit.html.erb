@@ -1,0 +1,25 @@
+  <body>
+    <h1 class="text-center my-3">　ダッシュボード編集</h1>
+
+    <div class="container">
+    <div class="card mx-auto col-8 float-center bg-secondary mb-5 my-3">
+    <article class="card-body py-3">
+     <%= form_for@dashboard do |f| %>
+
+     <%= f.label :name, "名前" , class: 'form-group py-1' %><br>
+     <%= f.text_area :name, placeholder: 'ダッシュボードの名前を記入してください',class: 'form-control' %>
+
+     <%= f.label :notiece, "お知らせ", class: 'form-group py-1' %><br>
+     <%= f.text_field :notice, placeholder: 'お知らせを記入してください',class: 'form-control' %>
+
+   <%= f.submit :class=>"btn btn-primary my-2" %>
+     <%= link_to '戻る', :back, class: 'btn btn-dark my-2' %>
+
+ <% end %>
+
+
+    </article>
+　　</div> <!-- card.// -->
+    </div>
+
+  </body>

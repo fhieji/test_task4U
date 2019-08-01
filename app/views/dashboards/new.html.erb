@@ -1,0 +1,29 @@
+<body>
+  <h1 class="text-center my-3">　ダッシュボード登録</h1>
+
+  <div class="container">
+  <div class="card mx-auto col-8 float-center bg-secondary mb-5 my-3">
+  <article class="card-body py-3">
+   <%= form_for @dashboard ,:url => {:action => 'create'} do |f| %>
+
+   <%= f.label :name, "名前" , class: 'form-group py-1' %><br>
+   <%= f.text_field :name, placeholder: 'ダッシュボードの名前を記入してください',class: 'form-control' %>
+
+   <%= f.label :notiece, "題名", class: 'form-group py-1' %><br>
+   <%= f.text_field :notice, placeholder: 'お知らせを記入してください',class: 'form-control' %>
+
+   <%= f.label :users %><br>
+   <%= f.collection_check_boxes(:user_ids, User.all, :id, :surname ) do |t|  %>
+  <% t.label { t.check_box + t.text } %>
+  <% end %>
+ <%= f.submit :class=>"btn btn-primary my-2" %>
+   <%= link_to '戻る', :back, class: 'btn btn-dark my-2' %>
+
+<% end %>
+
+
+  </article>
+　　</div> <!-- card.// -->
+  </div>
+
+</body>

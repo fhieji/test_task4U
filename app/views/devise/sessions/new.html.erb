@@ -1,32 +1,46 @@
+<style media="screen">
+  body {
+      padding-bottom: 60px;
+      color: #ffffff;
+      background-color: #303030;
+  }
+</style>
 <body>
 <div class="container">
 <br>  <h2 class="text-center">ログイン</h2>
 <hr>
     </div>
-
-
-
 <div class="container">
 <div class="card mx-auto col-8 float-center bg-secondary">
-<article class="card-body">
-<h4 class="card-title mb-4 mt-1">サインイン</h4>
-   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-   
-      <%= f.label :email, "email", class:'form-group py-1' %><br>
-      <%= f.text_field :email %><br>
+  <article class="card-body">
+  <div class="row">
+     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <%= f.label :password, "パスワード", class:'form-group py-1' %><br>
-      <%= f.text_field :password %><br>
+        <%= f.label :email, "email", class:'form-group py-1' %><br>
+        <%= f.text_field :email %><br>
 
-    <div class="checkbox  pt-5">
-      <label> <input type="checkbox">パスワードの保存</label>
-    </div> <!-- checkbox .// -->
-    </div> <!-- form-group// -->
+        <%= f.label :password, "パスワード", class:'form-group py-1' %><br>
+        <%= f.text_field :password %><br>
 
-      <%= f.submit "ログイン", class: "d-block mx-auto col-8 btn btn-outline-primary my-3" %><br>
+      <div class="checkbox  pt-5">
+        <label> <input type="checkbox">パスワードの保存</label>
+      </div> <!-- checkbox .// -->
+      </div> <!-- form-group// -->
+</div>
+
+    <div class="row">
+      <div class="container mx-auto col-8">
+        <%= f.submit "ログイン", class: "col-12 float-left btn btn-outline-info my-2" %>
+      </div>
+      <% end %>
     </div>
 
-    <% end %>
-          <%= render "devise/shared/links"%>
+    <div class="row">
+      <div class="container mx-auto col-8 text-right">
+      <%= render "devise/shared/links"%>
+    </div>
+
+ </div>
+
 
 </body>

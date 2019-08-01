@@ -1,58 +1,30 @@
-  <body>
-    <h1 class="text-center">ダッシュボード</h1>
+<body>
+<div class="row">
+  <h1 class="col-12 text-center ">　参加中ダッシュボード</h1>
+</div>
 
-      <div　class="text-left">
-        <h2>サマリ</h2>
-      </div>
+<div class="row">
+    <%= link_to '新規作成', new_dashboard_path, class: "mx-auto btn btn-outline-info btn-md " %>
+</div>
 
-      <div　class="text-left">
-        <h2>お知らせ</h2>
-        <form>
-          <div class="form-group">
-          <label for="ab-description">説明大項目</label>
-    　　  <textarea class="form-control" rows="2"　id="ab-description" placeholder="タスク進捗状況の概要を記載してください。" required></textarea>
-          </div>
-        </form>
-      </div>
+    <div class="row">
 
-      <div class="text-left">
-        <h2>要確認チケット</h2>
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>カテゴリ</th>
-        <th>題名</th>
-        <th>担当者</th>
-        <th>ステータス</th>
-        <th>開始日</th>
-        <th>期日</th>
-        <th>進捗率</th>
-        <th>ウォッチャー</th>
-        <th>操作</th>
-    <tbody>
-      <% @tickets.each do |ticket| %>
-        <tr>
-          <th><%= ticket.id %></th>
-          <th><%= ticket.category %></th>
-          <th><%= ticket.title %></th>
-          <th><%= ticket.PIC %></th>
-          <th><%= ticket.status %></th>
-          <th><%= ticket.start_date %></th>
-          <th><%= ticket.due_date %></th>
-          <th><%= ticket.progress_rate %></th>
-          <th><%= ticket.watcher %></th>
-          <th>
-            <%= link_to '詳細', ticket_path(ticket), class: "btn btn-outline-info my-1 mp-1" %>
-            <!-- TODO 削除機能の実装 -->
-            <%= link_to '削除', ticket_path(ticket), method: :delete, class: "btn btn-outline-danger mb-1" %>
-          </th>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% @dashboards.each do |d| %>
+  <% if d.user_ids[0] == current_user.id%>
+  <div class="card col-sm-5 float-left bg-secondary mb-5 m-3">
+    <div class="card-body py-3">
 
-      </div>
-  </body>
-</html>
+      <p><%= d.name %></p><br>
+      <p><%= d.notice %></p><br>
+
+      <%= link_to '詳細', dashboard_path(d.id), class: "btn btn-outline-info my-1 mp-1" %>
+      <%= link_to '削除', dashboard_path(d.id), method: :delete, class: "btn btn-outline-danger mb-1" %>
+      <%= link_to '戻る', :back, class: 'btn btn-dark my-2'%>
+
+    </div>
+  </div>
+
+  <% end %>
+  <% end %>
+    </div>
+</body>

@@ -1,11 +1,14 @@
+<%= link_to "ユーザー登録", new_user_registration_path(),class: "my-1 btn btn-outline-primary"%><br />
+<% if current_user.admin? %>
 
 <u1><% @users.each do |user| %>
   <li>
   <%= user.id %><br>
-  <%= user.role %><br>
+  <%= user.role %>
+  <%= link_to '編集', edit_user_path(user.id), class: "btn btn-outline-info my-1 mp-1" %><br>
 
     <% unless user.ticket_watchers.empty?%>
-    <p>ウォッチャー指定</p>
+    <p>ウォッチャーを指定</p>
       <% @tickets.each do |ticket| %>
       <%= ticket.category %><br>
       <%= ticket.status %>
@@ -13,19 +16,24 @@
     <% end %>
 </li>
   <% end %>
-<% if current_user.admin? %>
 
-<% end %><br>
+<% else %><br>
 
-<br>
-<p>これにしたい</p>
-</u1>
+<p>テスト表示※後で削除</p>
+<p>最終的にユーザー名のみ表示</p>
+<u1><% @users.each do |user| %>
+  <li>
+  <%= user.id %><br>
+  <%= user.role %>
+  <%= link_to '編集', edit_user_path(user.id), class: "btn btn-outline-info my-1 mp-1" %><br>
 
-<div class="btn-group btn-group-toggle mx-2" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> general
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off"> admin
-  </label>
-</div>
+    <% unless user.ticket_watchers.empty?%>
+    <p>ウォッチャーを指定</p>
+      <% @tickets.each do |ticket| %>
+      <%= ticket.category %><br>
+      <%= ticket.status %>
+      <% end %>
+    <% end %>
+</li>
+  <% end %>
+  <% end %>

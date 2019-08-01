@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :ticket_watchers, dependent: :destroy, foreign_key: 'user_id'
   has_many :tickets, through: :ticket_watchers
 
-  has_many :teams, dependent: :destroy
+  has_many :teams, dependent: :destroy, foreign_key: 'user_id'
   has_many :dashboards, through: :teams
 end

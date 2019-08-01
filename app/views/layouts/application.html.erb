@@ -10,7 +10,9 @@
   </head>
   <header>
     <% if user_signed_in? %>
-      <%= render 'layouts/header' %>
+      <% if user_signed_in? %>
+        <%= render 'layouts/header' %>
+      <% end %>
     <% end %>
   </header>
 
@@ -22,7 +24,7 @@
     <%= yield %>
   </body>
   <footer>
-    <nav class="navbar navbar-dark bg-dark justify-content-end">
+    <nav class="navbar navbar-dark bg-dark justify-content-end fixed-bottom">
     <% if user_signed_in? %>
     <span class="navbar-brand">
       <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-outline-light", method: :delete %>

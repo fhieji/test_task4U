@@ -1,0 +1,65 @@
+  <body>
+    <h1 class="text-center">ダッシュボード</h1>
+
+      <div　class="text-left">
+
+
+      </div>
+  <% if can? :crud, @dashboard %>
+
+
+        <form>
+          <div class="mx-auto col-9">
+          <%= form_for @dashboard do |f| %>
+             <%= f.label :notice, "お知らせ", class: 'h2 form-group py-1' %><br>
+             <%= @dashboard.notice %>
+             <%= @dashboard.id %><br>
+
+            　<%= link_to '編集', edit_dashboard_path(id: @dashboard), class: "btn btn-outline-info my-1 mp-1" %>
+          <% end %>
+          </div>
+        </form><br>
+
+
+
+
+        <h2 class="col-9 mx-auto text-left">要確認チケット</h2>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>カテゴリ</th>
+        <th>題名</th>
+        <th>担当者</th>
+        <th>ステータス</th>
+        <th>開始日</th>
+        <th>期日</th>
+        <th>進捗率</th>
+        <th>ウォッチャー</th>
+        <th>操作</th>
+    <tbody>
+      <% @tickets.each do |ticket| %>
+        <tr>
+          <th><%= ticket.id %></th>
+          <th><%= ticket.category %></th>
+          <th><%= ticket.title %></th>
+          <th><%= ticket.PIC %></th>
+          <th><%= ticket.status %></th>
+          <th><%= ticket.start_date %></th>
+          <th><%= ticket.due_date %></th>
+          <th><%= ticket.progress_rate %></th>
+          <th><%= ticket.watcher %></th>
+          <th>
+            <%= link_to '詳細', dashboard_ticket_path(ticket), class: "btn btn-outline-info my-1 mp-1" %>
+            <%= link_to '削除', dashboard_ticket_path(ticket), method: :delete, class: "btn btn-outline-danger mb-1" %>
+          </th>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+      </div>
+  </body>
+</html>
