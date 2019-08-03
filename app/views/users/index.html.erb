@@ -1,6 +1,11 @@
 
 <% if current_user.admin? %>
 
+ <% done = 0%>
+ <% delay = 0%>
+ <% ontime = 0%>
+ <% ahead = 0%>
+
 <u1><% @users.each do |user| %>
   <li>
   <%= user.id %><br>
@@ -10,11 +15,27 @@
       <% @tickets.each do |ticket| %>
       <%= ticket.category %><br>
       <%= ticket.status %>
+      <% case ticket.status %>
+      <% when "未着手" %>
+      <% done += 1 %>
+      <% when "遅延" %>
+      <% done += 1 %>
+      <% when "予定通り" %>
+      <% done += 1 %>
+      <% when "前倒し" %>
+      <% done += 1 %>
+      <% end %>
+
       <%= ticket.PIC %>
       <% end %>
     <% end %>
 </li>
   <% end %>
+  <br><h3>サマリ</h3>
+  <%= "未着手:#{done}"  %><br>
+  <%= "遅延:#{delay}"  %><br>
+  <%= "予定通り:#{ontime}" %><br>
+  <%= "前倒し:#{ahead}" %>
 
 <% else %><br>
 

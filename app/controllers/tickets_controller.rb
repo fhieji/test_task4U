@@ -9,7 +9,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @dashboard = Dashboard.find_by(id: 16)
+    @dashboard = Dashboard.find_by(id: params[:id])
     @ticket = @dashboard.tickets.build(tickets_params)
     logger.debug @ticket.errors.inspect
     if @ticket.save
