@@ -10,7 +10,9 @@
     <div class="row">
 
   <% @dashboards.each do |d| %>
-  <% if d.user_ids[0] == current_user.id%>
+  <% lis = d.user_ids %>
+  <% if lis.include?(current_user.id) %>
+
   <div class="card col-sm-5 float-left bg-secondary mb-5 m-3">
     <div class="card-body py-3">
 
@@ -18,7 +20,7 @@
       <p><%= d.notice %></p><br>
 
       <%= link_to '詳細', dashboard_path(d.id), class: "btn btn-outline-info my-1 mp-1" %>
-      <%= link_to '削除', dashboard_path(d.id), method: :delete, class: "btn btn-outline-danger mb-1" %>
+      <%= link_to '削除', dashboards_path(d.id), method: :delete, class: "btn btn-outline-danger mb-1" %>
       <%= link_to '戻る', :back, class: 'btn btn-dark my-2'%>
 
     </div>

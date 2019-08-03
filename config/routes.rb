@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'dashboards#index'
   resources :users
-  resources :projects
-  resources :dashboards  do
+  resources :dashboards, shallow:true  do
     resources :tickets
   end
 

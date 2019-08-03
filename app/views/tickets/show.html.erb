@@ -43,11 +43,14 @@
      <%= @ticket.progress_rate %><br>
 
      <%= f.label :watcher, "チケットのウォッチャー", class: 'form-group py-1' %><br>
-     <%= @ticket.watcher %><br>
+     <p>今はユーザーのIDのみを配列で表示</p>
+     <%= @ticket.user_ids %><br>
+         <% end %>
 
+     <%= link_to '編集', edit_ticket_path(@ticket), class: "btn btn-outline-info my-1 mp-1" %>
      <%= link_to '戻る', :back, class: 'btn btn-dark' %>
 
-    <% end %>
+
 
    </article>
 　　</div> <!-- card.// -->

@@ -1,4 +1,4 @@
-<%= link_to "ユーザー登録", new_user_registration_path(),class: "my-1 btn btn-outline-primary"%><br />
+
 <% if current_user.admin? %>
 
 <u1><% @users.each do |user| %>
@@ -6,12 +6,11 @@
   <%= user.id %><br>
   <%= user.role %>
   <%= link_to '編集', edit_user_path(user.id), class: "btn btn-outline-info my-1 mp-1" %><br>
-
     <% unless user.ticket_watchers.empty?%>
-    <p>ウォッチャーを指定</p>
       <% @tickets.each do |ticket| %>
       <%= ticket.category %><br>
       <%= ticket.status %>
+      <%= ticket.PIC %>
       <% end %>
     <% end %>
 </li>
@@ -27,13 +26,7 @@
   <%= user.role %>
   <%= link_to '編集', edit_user_path(user.id), class: "btn btn-outline-info my-1 mp-1" %><br>
 
-    <% unless user.ticket_watchers.empty?%>
-    <p>ウォッチャーを指定</p>
-      <% @tickets.each do |ticket| %>
-      <%= ticket.category %><br>
-      <%= ticket.status %>
-      <% end %>
-    <% end %>
+
 </li>
   <% end %>
   <% end %>

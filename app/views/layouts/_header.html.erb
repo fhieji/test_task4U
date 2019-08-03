@@ -23,10 +23,10 @@
     <% if controller.controller_name == "dashboards" && controller.action_name == "show"%>
     <%= link_to 'ダッシュボード', root_path, class: "nav-item mr-auto nav-link" %>
     <%= link_to 'チケット登録', new_dashboard_ticket_path(@dashboard.id), class: "nav-item nav-link" %>
-    <%= link_to 'ユーザー一覧', users_path, class: "nav-item nav-link" %>
+    <%= link_to '管理画面', users_path, class: "nav-item nav-link" %>
     <% else %>
     <%= link_to 'ダッシュボード', root_path, class: "nav-item mr-auto nav-link" %>
-    <%= link_to 'ユーザー一覧', users_path, class: "nav-item nav-link" %>
+    <%= link_to '管理画面', users_path, class: "nav-item nav-link" %>
     <% end %>
     </div>
 

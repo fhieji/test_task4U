@@ -29,6 +29,15 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
   end
 
+  def update
+    @ticket =  Ticket.find(params[:id])
+    if @ticket.update_attributes(tickets_params)
+      redirect_to dashboards_path(@ticket.dashboard_id) , notice: 'ユーザーの更新に成功しました'
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     Ticket.find(params[:id]).destroy
     flash[:success] = "Ticket deleted"
